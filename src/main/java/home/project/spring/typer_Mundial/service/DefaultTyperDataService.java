@@ -52,7 +52,7 @@ public class DefaultTyperDataService implements TyperDataService {
         matchResults.setGame_1G_2H(game7);
         matchResults.setGame_1H_2G(game8);
         matchResults.setDate(new Date());
-        
+
         return matchResultsRepository.save(matchResults);
     }
 }
