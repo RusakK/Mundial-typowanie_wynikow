@@ -1,0 +1,32 @@
+body{
+    /* Background pattern from Subtle Patterns */
+    background-image: url("images/hexellence.png");
+}
+
+#topBar {
+    background-color: #022c55;
+    color: aliceblue;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#bar18{
+    background-color: #688bad;
+    color: aliceblue;
+    text-align: center;
+}
+#cwiercfinal{
+    background-color: #5078a0;
+    color: aliceblue;
+    text-align: center;
+}
+#polfinal{
+    background-color: #366592;
+    color: aliceblue;
+    text-align: center;
+}
+#final{
+    background-color: #043e77;
+    color: aliceblue;
+    text-align: center;
+}
