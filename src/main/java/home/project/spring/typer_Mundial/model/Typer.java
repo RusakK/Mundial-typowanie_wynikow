@@ -1,31 +1,45 @@
 package home.project.spring.typer_Mundial.model;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Typer extends BaseModel implements Serializable {
 
+    private String nickname;
+    private String email;
     private int points;
-    private Date date;
-    @ManyToOne
-    @JoinColumn(name = "customerId")
-    private Customer customer;
-    @ManyToOne
-    @JoinColumn(name = "matchResultsId")
-    private MatchResults matchResults;
+
+    @OneToMany(mappedBy = "typer")
+    private List<Match> matchList;
+
 
     public Typer() {
     }
 
-    public Typer(int points, Date date, Customer customer, MatchResults matchResults) {
+    public Typer(String nickname, String email, int points, List<Match> matchList) {
+        this.nickname = nickname;
+        this.email = email;
         this.points = points;
-        this.date = date;
-        this.customer = customer;
-        this.matchResults = matchResults;
+        this.matchList = matchList;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getPoints() {
@@ -36,27 +50,11 @@ public class Typer extends BaseModel implements Serializable {
         this.points = points;
     }
 
-    public Date getDate() {
-        return date;
+    public List<Match> getMatchList() {
+        return matchList;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public MatchResults getMatchResults() {
-        return matchResults;
-    }
-
-    public void setMatchResults(MatchResults matchResults) {
-        this.matchResults = matchResults;
+    public void setMatchList(List<Match> matchList) {
+        this.matchList = matchList;
     }
 }

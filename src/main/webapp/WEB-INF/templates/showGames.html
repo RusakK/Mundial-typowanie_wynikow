@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"/>
-    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 
 </head>
 <body>
@@ -15,30 +15,64 @@
     <div id="topBar">
         <b>Drabinka turniejowa / Mundial 2018</b>
     </div>
-
+    <div class="row">
+        <form th:action="@{/saved}" th:object="${savedTyper}" method="post">
+            <div style="margin: auto">
+                <b>Dodaj Typera</b>
+                <span style="margin: 30px">Podaj nick     <input class="form-control" type="text" th:field="*{nickname}"/></span>
+                <span>Podaj email     <input class="form-control" type="text" th:field="*{email}"/></span>
+                <span><input type="submit"/></span>
+            </div>
+        </form>
+        <br/>
+        <br/>
+        <br/>
+    </div>
     <div class="row">
         <div class="col">
             <form>
                 <div class="form-group" id="bar18">
                     <b>1/8</b>
                 </div>
-                <div class="form-group">
-                    <label style="background-color: blue">Urugwaj1</label>
-                    <label>Portugalia1</label>
+                <div class="form-group"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>Urugwaj</ol>
+                    <ol>Portugalia</ol>
                 </div>
-                <div class="form-group">
-                    <label>Another label1</label>
-                    <label>Another label1</label>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>Francja</ol>
+                    <ol>Argentyna</ol>
                 </div>
-            </form>
-            <form>
-                <div class="form-group">
-                    <label>chiny1</label>
-                    <label>Portugalia1</label>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>1E</ol>
+                    <ol>2F</ol>
                 </div>
-                <div class="form-group">
-                    <label>Another label1</label>
-                    <label>Another label1</label>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>1G</ol>
+                    <ol>2H</ol>
+                </div>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>Hiszpania</ol>
+                    <ol>Rosja</ol>
+                </div>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>Chorwacja</ol>
+                    <ol>Dania</ol>
+                </div>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>1F</ol>
+                    <ol>2E</ol>
+                </div>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>Francja</ol>
+                    <ol>Argentyna</ol>
                 </div>
             </form>
         </div>
@@ -46,15 +80,27 @@
         <div class="col">
             <form>
                 <div class="form-group" id="cwiercfinal">
-                    <b>Cwierćfinal</b>
+                    <b>Cwiercfinal</b>
                 </div>
-                <div class="form-group">
-                    <label>Urugwaj2</label>
-                    <label>Portugalia2</label>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px;margin-top: 90px; margin-bottom: 160px; border: black solid 1px">
+                    <ol>16:00</ol>
+                    <ol>6 lipca</ol>
                 </div>
-                <div class="form-group">
-                    <label>Another labe2</label>
-                    <label>Another labe2</label>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 160px; border: black solid 1px">
+                    <ol>20:00</ol>
+                    <ol>6 lipca</ol>
+                </div>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 160px; border: black solid 1px">
+                    <ol>20:00</ol>
+                    <ol>7 lipca</ol>
+                </div>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>16:00</ol>
+                    <ol>7 lipca</ol>
                 </div>
             </form>
 
@@ -63,15 +109,17 @@
         <div class="col">
             <form>
                 <div class="form-group" id="polfinal">
-                    <b>Półfinał</b>
+                    <b>Półfinal</b>
                 </div>
-                <div class="form-group">
-                    <label>Urugwaj3</label>
-                    <label>Portugalia3</label>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px;margin-top: 230px; margin-bottom: 440px; border: black solid 1px">
+                    <ol>20:00</ol>
+                    <ol>10 lipca</ol>
                 </div>
-                <div class="form-group">
-                    <label>Another label3</label>
-                    <label>Another label3</label>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
+                    <ol>20:00</ol>
+                    <ol>11 lipca</ol>
                 </div>
             </form>
 
@@ -82,13 +130,10 @@
                 <div class="form-group" id="final">
                     <b>Finał</b>
                 </div>
-                <div class="form-group">
-                    <label>Urugwaj4</label>
-                    <label>Portugalia4</label>
-                </div>
-                <div class="form-group">
-                    <label>Another label4</label>
-                    <label>Another label4</label>
+                <div class="kraje"
+                     style="background-color: aliceblue; padding: 20px; margin-top: 520px; border: black solid 1px">
+                    <ol>17:00</ol>
+                    <ol>15 lipca</ol>
                 </div>
             </form>
 

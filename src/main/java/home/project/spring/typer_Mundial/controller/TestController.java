@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestController {
 
     @RequestMapping("/show")
-    public String show(Model model){
+    public String show(Model model) {
         return "showGames";
     }
+
+
 }
