@@ -57,4 +57,14 @@ public class Typer extends BaseModel implements Serializable {
     public void setMatchList(List<Match> matchList) {
         this.matchList = matchList;
     }
+
+    @Override
+    public String toString() {
+        return "Typer{" +
+                "nickname='" + nickname + '\'' +
+                ", email='" + email + '\'' +
+                ", points=" + points +
+                ", matchList=" + matchList +
+                '}';
+    }
 }
