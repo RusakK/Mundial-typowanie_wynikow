@@ -13,26 +13,29 @@
 
 <div class="container">
 
-    <div class="jumbotron">
-        <h1 class="display-4">Availabe Typers</h1>
+    <div class="jumbotron" style="text-align: center">
+        <h1 class="display-3" style="margin-bottom: 50px">Ranking Typerów</h1>
 
-        <form th:action="@{/showDetails}" method="get">
-            <table>
+        <form th:action="@{/show}" method="post">
+            <table class="table">
+                <thead class="thead-dark">
                 <tr>
-                    <th>ID</th>
-                    <th>Nichname</th>
-                    <th>Email</th>
-                    <th>Points</th>
-
+                    <th scope="col">#</th>
+                    <th scope="col">Nickname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Points</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr th:each="typer : ${allTypers}">
                     <td th:text="${typer.id}"></td>
                     <td th:text="${typer.nickname}"></td>
                     <td th:text="${typer.email}"></td>
                     <td th:text="${typer.points}"></td>
                 </tr>
-
+                </tbody>
             </table>
+            <a class="nav-item nav-link active" href="/mundial/newTyper">Typuj mecze fazy pucharowej</a>
         </form>
     </div>
 </div>

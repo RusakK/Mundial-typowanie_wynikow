@@ -15,42 +15,7 @@
     <div id="topBar">
         <b>Drabinka turniejowa / Mundial 2018</b>
     </div>
-    <div class="row">
-        <form th:object="${typer}" method="post">
-            <div style="margin: auto">
-                <b>Dodaj Typera</b>
-                <span style="margin: 30px">Podaj nick     <input class="form-control" type="text" th:field="*{nickname}"/></span>
-                <span>Podaj email     <input class="form-control" type="text" th:field="*{email}"/></span>
-                <span><input type="submit"/></span>
-            </div>
-        </form>
-        <br/>
-        <br/>
-        <br/>
-    </div>
 
-    <div class="row">
-        <div class="row">
-            <form th:action="@{/showDetails}" method="post">
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nichname</th>
-                        <th>Email</th>
-                        <th>Points</th>
-
-                    </tr>
-                    <tr th:each="typer : ${allTypers}">
-                        <td th:text="${typer.id}"></td>
-                        <td th:text="${typer.nickname}"></td>
-                        <td th:text="${typer.email}"></td>
-                        <td th:text="${typer.points}"></td>
-                    </tr>
-
-                </table>
-            </form>
-        </div>
-    </div>
     <div class="row">
         <div class="col">
             <form>
