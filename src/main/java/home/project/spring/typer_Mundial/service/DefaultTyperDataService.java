@@ -31,4 +31,10 @@ public class DefaultTyperDataService implements TyperDataService {
         return typerRepository.findByNickname(nickname);
     }
 
+    @Override
+    public Typer loadById(Integer typerId) {
+        return typerRepository.findOne(typerId);
+    }
+
+
 }

@@ -13,5 +13,6 @@ public interface TyperDataService {
 
     Optional<Typer> loadTyperByNicname(String nickname);
 
+    Typer loadById(Integer typerId);
 
 }

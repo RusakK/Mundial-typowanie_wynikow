@@ -16,28 +16,26 @@
     <div class="jumbotron" style="text-align: center">
         <h1 class="display-3" style="margin-bottom: 50px">Podaj dane Typera</h1>
 
-        <form th:action="@{/typowanie}" method="post">
-            <!--<input type="hidden" th:value="${typerId}" th:attr="name='typerId'"/>
--->
+        <form th:action="@{/mundial}" th:object="${newTyper}" method="post">
+            <input type="hidden" th:value="${typerId}" th:attr="name='typerId'"/>
+
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label col-form-label-lg">Nickname</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" th:field="*{nickname}"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label col-form-label-lg">Email</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control is-invalid" />
+                    <input type="email" class="form-control is-invalid" th:field="*{email}"/>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col align-self-center">
                     <div class="col-sm-4">
-                        <a th:href="@{/mundial/{typerId}/typowanie(typerId=${typer.id})}" th:text="Zatwiedź i przejdź do typowania">
-                            <button type="submit" class="btn btn-success btn-lg btn-block"></button>
-                        </a>
-
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Zatwiedź i przejdź do typowania
+                        </button>
                     </div>
                 </div>
             </div>

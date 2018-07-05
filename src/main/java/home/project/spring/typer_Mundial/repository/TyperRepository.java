@@ -11,4 +11,6 @@ public interface TyperRepository extends CrudRepository<Typer, Integer> {
 
     @Query("SELECT t FROM Typer t WHERE t.nickname like :nickname")
     Optional<Typer> findByNickname(@Param("nickname") String nickname);
+
+
 }
