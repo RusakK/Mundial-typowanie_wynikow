@@ -10,6 +10,7 @@ import java.util.Date;
 @Table(name = "game")
 public class Match extends BaseModel {
 
+    private String name;
     private int scoreTeamA;
     private int scoreTeamB;
     private Date date;
@@ -22,11 +23,12 @@ public class Match extends BaseModel {
     public Match() {
     }
 
-    public Match(int scoreTeamA, int scoreTeamB, Date date, Typer typer) {
-        this.scoreTeamA = scoreTeamA;
-        this.scoreTeamB = scoreTeamB;
-        this.date = date;
-        this.typer = typer;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getScoreTeamA() {

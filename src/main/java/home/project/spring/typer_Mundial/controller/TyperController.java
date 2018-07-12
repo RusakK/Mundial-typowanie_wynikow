@@ -2,25 +2,31 @@ package home.project.spring.typer_Mundial.controller;
 
 import home.project.spring.typer_Mundial.model.Match;
 import home.project.spring.typer_Mundial.model.Typer;
+import home.project.spring.typer_Mundial.service.MatchDataService;
 import home.project.spring.typer_Mundial.service.TyperDataService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 @Controller
 @RequestMapping("/mundial")
 public class TyperController {
 
-    @Autowired
     private final TyperDataService typerDataService;
 
-    public TyperController(TyperDataService typerDataService) {
+    private final MatchDataService matchDataService;
+
+    public TyperController(TyperDataService typerDataService, MatchDataService matchDataService) {
         this.typerDataService = typerDataService;
+        this.matchDataService = matchDataService;
     }
 
 
@@ -34,34 +40,35 @@ public class TyperController {
     }
 
     @GetMapping("/newTyper")
-    public String prepareNewTyper(
-            Model model) {
-        System.out.println("Przygotowanie nowego typera");
+    public String prepareNewTyper(Model model) {
         model.addAttribute("newTyper", new Typer());
+        model.addAttribute("match1", new Match());
+        model.addAttribute("match2", new Match());
+        model.addAttribute("match3", new Match());
         return "newTyper";
     }
 
     @PostMapping
-    public String saveNewTyper(@ModelAttribute("newTyper") Typer newTyperToBeSave) {
-        System.out.println("zapis do bazy");
+    public String saveNewTyper(@ModelAttribute("newTyper") Typer newTyperToBeSave,
+                               @ModelAttribute("match1") Match match1,
+                               @ModelAttribute("match2") Match match2,
+                               @ModelAttribute("match3") Match match3) {
+
         typerDataService.addTyper(newTyperToBeSave);
-        System.out.println(newTyperToBeSave.getId());
+
+        match1.setName("mecz1");
+        match2.setName("mecz2");
+        match3.setName("mecz3");
+
+        List<Match> list = new ArrayList<>();
+        list.add(match1);
+        list.add(match2);
+        list.add(match3);
+
+        list.forEach(match -> match.setTyper(newTyperToBeSave));
+        list.forEach(match -> match.setDate(new Date()));
+        matchDataService.addAllMatches(list);
         return "redirect:/mundial";
-    }
-
-    @GetMapping("/{typerId}/typowanie")
-    public String typeMatches(
-            @PathVariable("typerId") Integer typerId,
-            Model model) {
-        Typer typer = typerDataService.loadById(typerId);
-        if (typer != null) {
-            model.addAttribute("typer", typer);
-        }
-        model.addAttribute("typeMatch", new ArrayList<Match>());
-        model.addAttribute("match", new Match());
-
-        System.out.println("stworzenie listy i meczu");
-        return "typowanie";
     }
 
 

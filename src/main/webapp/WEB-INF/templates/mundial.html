@@ -32,16 +32,12 @@
                     <td th:text="${typer.nickname}"></td>
                     <td th:text="${typer.email}"></td>
                     <td th:text="${typer.points}"></td>
-                    <td>
-                        <a th:href="@{/mundial/{typerId}/typowanie(typerId=${typer.id})}" th:text="Typuj">
-                            <input type="button"/>
-                        </a>
-                    </td>
+
                 </tr>
                 </tbody>
             </table>
             <a class="nav-item nav-link active btn btn-primary" href="/mundial/newTyper">
-                <b>Dołącz do Typerów - Zarejestruj się!!!</b></a>
+                <b>Dołącz do Typerów - Typuj swoje wyniki!!!</b></a>
         </form>
     </div>
 </div>

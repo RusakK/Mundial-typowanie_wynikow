@@ -13,121 +13,180 @@
 
 <div class="container">
     <div id="topBar">
-        <b>Drabinka turniejowa / Mundial 2018</b>
-        <span th:text="'Witaj' + ${typer.nickname}"></span>
+        <b>Drabinka turniejowa / Mundial 2018</b><br/><br/>
+        <span th:text="'Witaj ' + ${typer.nickname}"></span>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <form>
-                <div class="form-group" id="bar18">
-                    <b>1/8</b>
-                </div>
-                <div class="form-group"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>Urugwaj</ol>
-                    <ol>Portugalia</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>Francja</ol>
-                    <ol>Argentyna</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>1E</ol>
-                    <ol>2F</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>1G</ol>
-                    <ol>2H</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>Hiszpania</ol>
-                    <ol>Rosja</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>Chorwacja</ol>
-                    <ol>Dania</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>1F</ol>
-                    <ol>2E</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>Francja</ol>
-                    <ol>Argentyna</ol>
-                </div>
-            </form>
+    <form th:action="@{/mundial}" method="post">
+        <div class="row">
+            <div class="col">
+                <form>
+                    <div class="form-group" id="bar18">
+                        <b>1/8</b>
+                    </div>
+                    <div class="form-group"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match1}">
+                        <ol>Urugwaj</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Portugalia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match2}">
+                        <ol>Francja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Argentyna</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match3}">
+                        <ol>Brazylia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Meksyk</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match4}">
+                        <ol>Belgia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Japonia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match5}">
+                        <ol>Hiszpania</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Rosja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match6}">
+                        <ol>Chorwacja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Dania</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match7}">
+                        <ol>Szwecja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Szwajcaria</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match8}">
+                        <ol>Kolumbia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Anglia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col">
+                <form>
+                    <div class="form-group" id="cwiercfinal">
+                        <b>Cwiercfinal</b>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px;margin-top: 120px; margin-bottom: 220px; border: black solid 1px"
+                         th:object="${match9}">
+                        <ol>Urugwaj</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Francja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 220px; border: black solid 1px"
+                         th:object="${match10}">
+                        <ol>Brazylia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Belgia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 220px; border: black solid 1px"
+                         th:object="${match11}">
+                        <ol>Rosja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Chorwacja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match12}">
+                        <ol>Szwecja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Anglia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col">
+                <form>
+                    <div class="form-group" id="polfinal">
+                        <b>Półfinal</b>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px;margin-top: 320px; margin-bottom: 620px; border: black solid 1px"
+                         th:object="${match13}">
+                        <ol>Fracja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Belgia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match14}">
+                        <ol>Chorwacja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Anglia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <form>
+                    <div class="form-group" id="final">
+                        <b>Finały</b>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: goldenrod; padding: 20px; margin-bottom: 20px; border: black solid 1px"
+                         th:object="${match15}">
+                        <b>3 Miejsce</b>
+                        <ol>Belgia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Anglia</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+                    <div class="kraje"
+                         style="background-color: gold; padding: 20px; margin-top: 520px; border: black solid 1px"
+                         th:object="${match16}">
+                        <ol>Francja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamA}"/>
+                        <ol>Chorwacja</ol>
+                        <input type="number" min="0" max="9" th:field="*{scoreTeamB}"/>
+                    </div>
+        <div class="row">
+
+            <div class="col" style="margin-bottom: 100px">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Zatwiedź typowanie</button>
+            </div>
+
         </div>
-
-        <div class="col">
-            <form>
-                <div class="form-group" id="cwiercfinal">
-                    <b>Cwiercfinal</b>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px;margin-top: 90px; margin-bottom: 160px; border: black solid 1px">
-                    <ol>16:00</ol>
-                    <ol>6 lipca</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 160px; border: black solid 1px">
-                    <ol>20:00</ol>
-                    <ol>6 lipca</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 160px; border: black solid 1px">
-                    <ol>20:00</ol>
-                    <ol>7 lipca</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>16:00</ol>
-                    <ol>7 lipca</ol>
-                </div>
-            </form>
-
+                </form>
+            </div>
         </div>
-
-        <div class="col">
-            <form>
-                <div class="form-group" id="polfinal">
-                    <b>Półfinal</b>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px;margin-top: 230px; margin-bottom: 440px; border: black solid 1px">
-                    <ol>20:00</ol>
-                    <ol>10 lipca</ol>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-bottom: 20px; border: black solid 1px">
-                    <ol>20:00</ol>
-                    <ol>11 lipca</ol>
-                </div>
-            </form>
-
-        </div>
-
-        <div class="col">
-            <form>
-                <div class="form-group" id="final">
-                    <b>Finał</b>
-                </div>
-                <div class="kraje"
-                     style="background-color: aliceblue; padding: 20px; margin-top: 520px; border: black solid 1px">
-                    <ol>17:00</ol>
-                    <ol>15 lipca</ol>
-                </div>
-            </form>
-
-        </div>
-    </div>
+    </form>
 </div>
 
 

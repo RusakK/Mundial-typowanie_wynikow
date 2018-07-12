@@ -14,32 +14,75 @@
 <div class="container">
 
     <div class="jumbotron" style="text-align: center">
-        <h1 class="display-3" style="margin-bottom: 50px">Podaj dane Typera</h1>
+        <h1 class="display-3" style="margin-bottom: 50px">Typuj</h1>
 
         <form th:action="@{/mundial}" th:object="${newTyper}" method="post">
             <input type="hidden" th:value="${typerId}" th:attr="name='typerId'"/>
 
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label col-form-label-lg">Nickname</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nickname}"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control is-invalid" th:field="*{email}"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col align-self-center">
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-success btn-lg btn-block">Zatwiedź i przejdź do typowania
-                        </button>
+            <div class="row justify-content-center">
+                <table>
+                    <div class="col-3 center">
+                        <ol>Nickname
+                            <input type="text" class="form-control" th:field="*{nickname}"/>
+                        </ol>
+                        <ol>Email
+                            <input type="email" class="form-control is-invalid" th:field="*{email}"/>
+                        </ol>
+
+                        <div th:object="${match1}">
+                            <label>Mecz nr 1</label>
+                            <ol>Drużyna A
+                                <input type="number" min="0" max="9" class="form-control" th:field="*{scoreTeamA}"/>
+                            </ol>
+                            <ol>Drużyna B
+                                <input type="number" min="0" max="9" class="form-control" th:field="*{scoreTeamB}"/>
+                            </ol>
+                        </div>
+                        <div th:object="${match2}">
+                            <label>Mecz nr 2</label>
+                            <ol>Drużyna A
+                                <input type="number" min="0" max="9" class="form-control" th:field="*{scoreTeamA}"/>
+                            </ol>
+                            <ol>Drużyna B
+                                <input type="number" min="0" max="9" class="form-control" th:field="*{scoreTeamB}"/>
+                            </ol>
+                        </div>
+                        <b>Mecz nr 3</b>
+                        <ol>Drużyna A
+                            <input type="number" min="0" max="9" class="form-control" th:field="${match3.scoreTeamA}"/>
+                        </ol>
+                        <ol>Drużyna B
+                            <input type="number" min="0" max="9" class="form-control" th:field="${match3.scoreTeamB}"/>
+                        </ol>
+
                     </div>
-                </div>
+                </table>
+                <button type="submit" class="btn btn-success btn-lg btn-block">Zatwiedź</button>
+
+                <!--  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label col-form-label-lg">Nickname</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" th:field="*{nickname}"/>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+                      <div class="col-sm-10">
+                          <input type="email" class="form-control is-invalid" th:field="*{email}"/>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col align-self-center">
+                          <div class="col-sm-4">
+                              <button type="submit" class="btn btn-success btn-lg btn-block">Zatwiedź i przejdź do
+                                  typowania
+                              </button>
+                          </div>
+                      </div>
+                  </div>-->
             </div>
         </form>
+
     </div>
 </div>
 
