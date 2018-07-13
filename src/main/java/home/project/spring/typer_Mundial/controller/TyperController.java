@@ -1,6 +1,7 @@
 package home.project.spring.typer_Mundial.controller;
 
 import home.project.spring.typer_Mundial.model.Match;
+import home.project.spring.typer_Mundial.model.NewTyperFormData;
 import home.project.spring.typer_Mundial.model.Typer;
 import home.project.spring.typer_Mundial.service.MatchDataService;
 import home.project.spring.typer_Mundial.service.TyperDataService;
@@ -32,7 +33,6 @@ public class TyperController {
 
     @GetMapping
     public String showRanking(Model model) {
-        System.out.println("Pokaz ranking");
         List<Typer> typers = typerDataService.loadAllTypers();
         typers.sort(Comparator.comparing(Typer::getPoints));
         model.addAttribute("allTypers", typers);
@@ -41,33 +41,44 @@ public class TyperController {
 
     @GetMapping("/newTyper")
     public String prepareNewTyper(Model model) {
-        model.addAttribute("newTyper", new Typer());
-        model.addAttribute("match1", new Match());
-        model.addAttribute("match2", new Match());
-        model.addAttribute("match3", new Match());
+        NewTyperFormData newTyperFormData = new NewTyperFormData();
+        model.addAttribute("newTyper", newTyperFormData);
         return "newTyper";
     }
 
     @PostMapping
-    public String saveNewTyper(@ModelAttribute("newTyper") Typer newTyperToBeSave,
-                               @ModelAttribute("match1") Match match1,
-                               @ModelAttribute("match2") Match match2,
-                               @ModelAttribute("match3") Match match3) {
+    public String saveNewTyper(@ModelAttribute("newTyper")NewTyperFormData newTyperFormData) {
 
-        typerDataService.addTyper(newTyperToBeSave);
+        Typer typer = new Typer();
+        typer.setNickname(newTyperFormData.getPreparingTyper().getNickname());
+        typer.setEmail(newTyperFormData.getPreparingTyper().getEmail());
+        typerDataService.addTyper(typer);
 
-        match1.setName("mecz1");
-        match2.setName("mecz2");
-        match3.setName("mecz3");
 
-        List<Match> list = new ArrayList<>();
-        list.add(match1);
-        list.add(match2);
-        list.add(match3);
+        Match match1 = new Match();
+        match1.setName("match1");
+        match1.setTyper(typer);
+        match1.setDate(new Date());
+        match1.setScoreTeamA(newTyperFormData.getMatch1().getScoreTeamA());
+        match1.setScoreTeamB(newTyperFormData.getMatch1().getScoreTeamB());
+        matchDataService.addMatch(match1);
 
-        list.forEach(match -> match.setTyper(newTyperToBeSave));
-        list.forEach(match -> match.setDate(new Date()));
-        matchDataService.addAllMatches(list);
+        Match match2 = new Match();
+        match2.setName("match2");
+        match2.setTyper(typer);
+        match2.setDate(new Date());
+        match2.setScoreTeamA(newTyperFormData.getMatch2().getScoreTeamA());
+        match2.setScoreTeamB(newTyperFormData.getMatch2().getScoreTeamB());
+        matchDataService.addMatch(match2);
+
+        Match match3 = new Match();
+        match3.setName("match3");
+        match3.setTyper(typer);
+        match3.setDate(new Date());
+        match3.setScoreTeamA(newTyperFormData.getMatch3().getScoreTeamA());
+        match3.setScoreTeamB(newTyperFormData.getMatch3().getScoreTeamB());
+        matchDataService.addMatch(match3);
+
         return "redirect:/mundial";
     }
 

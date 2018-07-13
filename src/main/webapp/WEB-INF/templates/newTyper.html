@@ -23,36 +23,36 @@
                 <table>
                     <div class="col-3 center">
                         <ol>Nickname
-                            <input type="text" class="form-control" th:field="*{nickname}"/>
+                            <input type="text" class="form-control" th:field="*{preparingTyper.nickname}"/>
                         </ol>
                         <ol>Email
-                            <input type="email" class="form-control is-invalid" th:field="*{email}"/>
+                            <input type="email" class="form-control is-invalid" th:field="*{preparingTyper.email}"/>
                         </ol>
 
-                        <div th:object="${match1}">
+                        <div>
                             <label>Mecz nr 1</label>
                             <ol>Drużyna A
-                                <input type="number" min="0" max="9" class="form-control" th:field="*{scoreTeamA}"/>
+                                <input type="number" min="0" max="9" class="form-control" th:field="*{match1.scoreTeamA}"/>
                             </ol>
                             <ol>Drużyna B
-                                <input type="number" min="0" max="9" class="form-control" th:field="*{scoreTeamB}"/>
+                                <input type="number" min="0" max="9" class="form-control" th:field="*{match1.scoreTeamB}"/>
                             </ol>
                         </div>
-                        <div th:object="${match2}">
+                        <div>
                             <label>Mecz nr 2</label>
                             <ol>Drużyna A
-                                <input type="number" min="0" max="9" class="form-control" th:field="*{scoreTeamA}"/>
+                                <input type="number" min="0" max="9" class="form-control" th:field="*{match2.scoreTeamA}"/>
                             </ol>
                             <ol>Drużyna B
-                                <input type="number" min="0" max="9" class="form-control" th:field="*{scoreTeamB}"/>
+                                <input type="number" min="0" max="9" class="form-control" th:field="*{match2.scoreTeamB}"/>
                             </ol>
                         </div>
                         <b>Mecz nr 3</b>
                         <ol>Drużyna A
-                            <input type="number" min="0" max="9" class="form-control" th:field="${match3.scoreTeamA}"/>
+                            <input type="number" min="0" max="9" class="form-control" th:field="*{match3.scoreTeamA}"/>
                         </ol>
                         <ol>Drużyna B
-                            <input type="number" min="0" max="9" class="form-control" th:field="${match3.scoreTeamB}"/>
+                            <input type="number" min="0" max="9" class="form-control" th:field="*{match3.scoreTeamB}"/>
                         </ol>
 
                     </div>
